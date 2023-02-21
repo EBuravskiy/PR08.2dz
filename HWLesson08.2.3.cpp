@@ -47,7 +47,9 @@ int calculate(string example) {
                 first_variable = first_variable * second_variable;
             }
             if (first_buffer[i] == "/") {
-                throw overflow_error("Can't divide by zero!");
+                if (second_variable == 0) {
+                    throw exception ("Can't divide by zero!");
+                }
                 first_variable = first_variable / second_variable;
             }
             first_buffer.erase(first_buffer.begin() + (i - 2), first_buffer.begin() + i + 1);
